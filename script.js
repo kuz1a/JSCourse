@@ -6,4 +6,4 @@ const logged = () => {
     console.log('commit');
 };
 
-console.log('test');
+console.log('master');
