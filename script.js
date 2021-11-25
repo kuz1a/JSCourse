@@ -5,3 +5,5 @@ const logged = () => {
     console.log(div.textContent);
     console.log('commit');
 };
+
+console.log('test');
