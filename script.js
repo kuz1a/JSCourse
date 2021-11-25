@@ -1,4 +1,7 @@
 'use strict';
+const div = document.getElementById("github");
 
-alert("hello");
-console.log("hello console");
+const logged = () => {
+    console.log(div.textContent);
+    console.log('commit');
+};
