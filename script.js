@@ -8,16 +8,7 @@ let title = '',
     adaptive = true;
 
 
-let num = 266219;
-let sum = 1;
-let multThree = 0;
-let arrayNum = num.toString().split('');
-console.log(arrayNum);
-for (let i = 0; i < arrayNum.length; i++) {
-  sum *= arrayNum[i];
 
-}
-multThree = sum ** 3;
 
 console.log(typeof title);
 console.log(typeof fullPrice);
@@ -27,6 +18,3 @@ console.log("Стоимость верстки экранов " + screenPrice + 
 console.log(screens.toLowerCase().split(","));
 console.log("Процент отката " + (fullPrice*(rollback/100)));
 
-console.log("Перемножение " + sum);
-console.log("Степень " + multThree);
-console.log("Первые две цифры числа это " + multThree.toString().slice(0,2) );
