@@ -15,10 +15,10 @@ for (let i = 0; i < arrayNum.length; i++) {
 // console.log("Первые две цифры числа это " + multThree.toString().slice(0,2) );
 
 
-// let title = prompt('Как называется ваш проект?');
-// let screens = prompt('Какие типы экранов нужно разработать?', "Простые, Сложеные, Интерактивные");
+let title = prompt('Как называется ваш проект?');
+let screens = prompt('Какие типы экранов нужно разработать?', "Простые, Сложеные, Интерактивные");
 let screenPrice = +prompt("Сколько будет стоить данная работа?", "12000");
-// let adaptive = confirm('Нужен ли адаптив на сайте?');
+let adaptive = confirm('Нужен ли адаптив на сайте?');
 let service1 = prompt("Какая дополнительная услуга1 нужна?");
 let servicePrice1 = +prompt("Сколько будет стоить " + service1);
 let service2 = prompt('Какая дополнительная услуга2 нужна?');
