@@ -1,7 +1,7 @@
 'use strict';
 
 let title = prompt('Как называется ваш проект?');
-let screens = prompt('Какие типы экранов нужно разработать?', "Простые, Сложеные, Интерактивные");
+let screens = prompt('Какие типы экранов нужно разработать?', "Простые, Сложные, Интерактивные");
 let screenPrice = +prompt("Сколько будет стоить данная работа?", "12000");
 let adaptive = confirm('Нужен ли адаптив на сайте?');
 let service1 = prompt("Какая дополнительная услуга1 нужна?");
@@ -12,46 +12,49 @@ let fullPrice = 0;
 let servicePercentPrice = 0;
 let allServicePrices = 0;
 
-if (fullPrice >= 0) {
-  if (fullPrice >= 30000) {
-    console.log('Скидка 10%');
-  } else if (fullPrice >= 15000 && fullPrice < 30000) {
-    console.log('скидка 5%');
-  } else if (fullPrice < 15000) {
-    console.log('Скидка не предусмотрена');
-  }
-  console.log('Full price ' + Math.ceil(fullPrice));
-  console.log('Чистая прибыль ' + servicePercentPrice);
-} else {
-  console.log('Чтото пошло не так!');
-}
+
 
 
 const getAllServicePrices = function(service1, service2) {
   allServicePrices = service1 + service2;
-  console.log(allServicePrices);
+  console.log("Сумма доп услуг " + allServicePrices);
 };
 
 function getFullPrice(servicePrice1, servicePrice2, screenPrice) {
 
   fullPrice = servicePrice1 + servicePrice2 + screenPrice;
-  console.log(fullPrice);
+  console.log("Сумма с учетом всех доп услуг" + fullPrice);
 }
 
 const getTitle = function(string) {
-  return console.log(string.split('').string[0].toUpperCase());
+  console.log(string.replace(/[a-za-я]+/gi, (match) => match[0].toUpperCase()+ match.substr(1)));
   
 }
 
 const getServicePercentPrices = function() {
   servicePercentPrice = fullPrice - ((fullPrice*10)/100);
-  console.log(servicePercentPrice);
+  console.log("Сумма с учетом отката " + servicePercentPrice);
 }
 
+
+const getRollbackMessage = function(){
+  if (fullPrice >= 0) {
+    if (fullPrice >= 30000) {
+      alert('Скидка 10%');
+    } else if (fullPrice >= 15000 && fullPrice < 30000) {
+      alert('скидка 5%');
+    } else if (fullPrice < 15000) {
+      alert('Скидка не предусмотрена');
+    }
+  
+  } else {
+    alert('Чтото пошло не так!');
+  }
+}
 getAllServicePrices(servicePrice1,servicePrice2)
-
 getFullPrice(servicePrice1, servicePrice2, screenPrice);
-
-
-getTitle(title)
 getServicePercentPrices();
+getRollbackMessage(fullPrice);
+getTitle(title)
+
+console.log(screens.split(','));
