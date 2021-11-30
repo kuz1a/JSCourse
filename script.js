@@ -8,8 +8,9 @@ let service1 = prompt("Какая дополнительная услуга1 н�
 let servicePrice1 = +prompt("Сколько будет стоить " + service1);
 let service2 = prompt('Какая дополнительная услуга2 нужна?');
 let servicePrice2 = +prompt("Сколько будет стоить " + service2);
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
-let servicePercentPrice = fullPrice - ((fullPrice*10)/100);
+let fullPrice = 0;
+let servicePercentPrice = 0;
+let allServicePrices = 0;
 
 if (fullPrice >= 0) {
   if (fullPrice >= 30000) {
@@ -26,5 +27,31 @@ if (fullPrice >= 0) {
 }
 
 
+const getAllServicePrices = function(service1, service2) {
+  allServicePrices = service1 + service2;
+  console.log(allServicePrices);
+};
+
+function getFullPrice(servicePrice1, servicePrice2, screenPrice) {
+
+  fullPrice = servicePrice1 + servicePrice2 + screenPrice;
+  console.log(fullPrice);
+}
+
+const getTitle = function(string) {
+  return console.log(string.split('').string[0].toUpperCase());
+  
+}
+
+const getServicePercentPrices = function() {
+  servicePercentPrice = fullPrice - ((fullPrice*10)/100);
+  console.log(servicePercentPrice);
+}
+
+getAllServicePrices(servicePrice1,servicePrice2)
+
+getFullPrice(servicePrice1, servicePrice2, screenPrice);
 
 
+getTitle(title)
+getServicePercentPrices();
