@@ -67,15 +67,15 @@ let variable = prompt("enter your message");
 console.log(typeof variable);
 const getParam = function(variable) {
   let result = '';
-  if (typeof variable === 'string') {
+  if (parseInt(variable)) {
+    alert("It is not a string")
+  } else if (typeof variable === 'string') {
     console.log(variable.trim());
     if (variable.length > 30) {
       console.log(variable.length);
       result = variable.substr(0,30) + "...";
       console.log(result);
     }
-  } else {
-    alert("It is not a string")
   }
 }
 getParam(variable);
