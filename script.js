@@ -27,7 +27,8 @@ function getFullPrice(servicePrice1, servicePrice2, screenPrice) {
 }
 
 const getTitle = function(string) {
-  console.log(string.replace(/[a-za-я]+/gi, (match) => match[0].toUpperCase()+ match.substr(1)));
+  var pos = string.indexOf(string.trim().charAt(0));
+  console.log((string.substr(0, pos - 1) + string.charAt(pos).toUpperCase() + string.substr(pos+1)));
   
 }
 
@@ -58,3 +59,7 @@ getRollbackMessage(fullPrice);
 getTitle(title)
 
 console.log(screens.split(','));
+
+console.log(typeof title);
+console.log(typeof fullPrice);
+console.log(typeof adaptive);
