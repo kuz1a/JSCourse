@@ -11,19 +11,18 @@ let servicePrice2 = +prompt("Сколько будет стоить " + service2
 let fullPrice = 0;
 let servicePercentPrice = 0;
 let allServicePrices = 0;
-
+let discount = 0;
 
 
 
 const getAllServicePrices = function(service1, service2) {
-  allServicePrices = service1 + service2;
-  console.log("Сумма доп услуг " + allServicePrices);
+  return service1 + service2;
+
 };
 
 function getFullPrice(servicePrice1, servicePrice2, screenPrice) {
+ return servicePrice1 + servicePrice2 + screenPrice;
 
-  fullPrice = servicePrice1 + servicePrice2 + screenPrice;
-  console.log("Сумма с учетом всех доп услуг" + fullPrice);
 }
 
 const getTitle = function(string) {
@@ -32,13 +31,12 @@ const getTitle = function(string) {
   
 }
 
-const getServicePercentPrices = function() {
-  servicePercentPrice = fullPrice - ((fullPrice*10)/100);
-  console.log("Сумма с учетом отката " + servicePercentPrice);
+const getServicePercentPrices = function(fullPrice) {
+  return fullPrice - ((fullPrice*10)/100);
 }
 
 
-const getRollbackMessage = function(){
+const getRollbackMessage = function(fullPrice){
   if (fullPrice >= 0) {
     if (fullPrice >= 30000) {
       alert('Скидка 10%');
@@ -52,12 +50,17 @@ const getRollbackMessage = function(){
     alert('Чтото пошло не так!');
   }
 }
-getAllServicePrices(servicePrice1,servicePrice2)
-getFullPrice(servicePrice1, servicePrice2, screenPrice);
-getServicePercentPrices();
-getRollbackMessage(fullPrice);
-getTitle(title)
 
+
+
+getTitle(title)
+fullPrice = getFullPrice(servicePrice1, servicePrice2, screenPrice);
+allServicePrices = getAllServicePrices(servicePrice1,servicePrice2);
+servicePercentPrice = getServicePercentPrices(fullPrice);
+discount = getRollbackMessage(fullPrice);
+console.log("Сумма доп услуг " + allServicePrices);
+console.log('Полный прайс ' + fullPrice)
+console.log("Сумма с учетом отката " + servicePercentPrice);
 console.log(screens.split(','));
 
 console.log(typeof title);
