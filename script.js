@@ -3,44 +3,45 @@
 let title;
 let screens;
 let screenPrice;
+let allServicePrices;
 let adaptive;
-
+let servicePercentPrice;
 let service1;
 let service2;
 let fullPrice = 0;
-let servicePercentPrice = 0;
-let allServicePrices = 0;
+
+
 let discount = 0;
 
 const isNumber = function(num) {
-  return !isNaN(parseFloat(num)) && isFinite(num);
+  let numberRes = !isNaN(parseFloat(num)) && isFinite(num);
+
+  return numberRes
 }
 
 
 const asking = function() {
   title = prompt('Как называется ваш проект?', "Калькулятор верстки");
   screens = prompt('Какие типы экранов нужно разработать?', "Простые, Сложные, Интерактивные");
-  screenPrice = +prompt("Сколько будет стоить данная работа?");
- 
-  while (!isNumber(screenPrice)) {
+  do {
     screenPrice = +prompt("Сколько будет стоить данная работа?");
-  }
+  } while (!isNumber(screenPrice));
+
 
   adaptive = confirm('Нужен ли адаптив на сайте?');
 }
 
 const getAllServicePrices = function() {
   let sum = 0;
-  for (let i = 0; i < 2; i++) {
-    service1 = prompt("Какая дополнительная услуга нужна?");
-    sum += +prompt("Сколько это будет стоить?");
-    console.log("sum " + typeof sum);
-    while(!isNumber(sum)) {
-      sum += +prompt("Сколько это будет стоить?");
-      console.log("sum " + typeof sum);
+  let res = 0;
+  for (let i =0; i< 2; i++) {
+      service1 = prompt("Какая доп услуга?")
+      do {
+        res = prompt('Сколько будет стоить?')
+      } while (!isNumber(res));
+      sum += +res;
     }
-  }
-
+  
   return sum;
 };
 
@@ -63,35 +64,33 @@ const getServicePercentPrices = function(fullPrice) {
 const getRollbackMessage = function(fullPrice){
   if (fullPrice >= 0) {
     if (fullPrice >= 30000) {
-      alert('Скидка 10%');
+      console.log('Скидка 10%');
     } else if (fullPrice >= 15000 && fullPrice < 30000) {
-      alert('скидка 5%');
+      console.log('скидка 5%');
     } else if (fullPrice < 15000) {
-      alert('Скидка не предусмотрена');
+      console.log('Скидка не предусмотрена');
     }
   
   } else {
-    alert('Чтото пошло не так!');
+    console.log('Чтото пошло не так!');
   }
 }
 
-
-
-// let variable = prompt("enter your message");
-// console.log(typeof variable);
-// const getParam = function(variable) {
-//   let result = '';
-//   if (parseInt(variable)) {
-//     alert("It is not a string")
-//   } else if (typeof variable === 'string') {
-//     console.log(variable.trim());
-//     if (variable.length > 30) {
-//       console.log(variable.length);
-//       result = variable.substr(0,30) + "...";
-//       console.log(result);
-//     }
-//   }
-// }
+let variable = prompt("enter your message");
+console.log(typeof variable);
+const getParam = function(variable) {
+  let result = '';
+  if (parseInt(variable)) {
+    alert("It is not a string")
+  } else if (typeof variable === 'string') {
+    console.log(variable.trim());
+    if (variable.length > 30) {
+      console.log(variable.length);
+      result = variable.substr(0,30) + "...";
+      console.log(result);
+    }
+  }
+}
 
 asking();
 
