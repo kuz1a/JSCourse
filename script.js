@@ -21,10 +21,12 @@ const isNumber = function(num) {
 
 
 const asking = function() {
+  let screenPriceRes;
   title = prompt('Как называется ваш проект?', "Калькулятор верстки");
   screens = prompt('Какие типы экранов нужно разработать?', "Простые, Сложные, Интерактивные");
   do {
-    screenPrice = +prompt("Сколько будет стоить данная работа?");
+    screenPriceRes = prompt("Сколько будет стоить данная работа?");
+    screenPrice = +screenPriceRes.trim();
   } while (!isNumber(screenPrice));
 
 
