@@ -36,12 +36,14 @@ const start = () => {
     if (isNumber(number)) {
       let userNumber = +number;
       if (userNumber > numberAsk) {
-        alert('Загаданное число меньше')
         k--;
+        alert('Загаданное число меньше. Осталось попыток ' + k);
+        
         game();
       } else if (userNumber < numberAsk) {
-        alert('Загаданное число больше');
         k--;
+        alert('Загаданное число больше. Осталось попыток ' + k);
+       
         game();
       } else {
         k--;
