@@ -40,7 +40,7 @@ const appData = {
    return appData.allServicePrices + +appData.screenPrice;
   },
   getTitle : function(string) {
-    var pos = string.indexOf(string.trim().charAt(0));
+    let pos = string.indexOf(string.trim().charAt(0));
     console.log((string.substr(0, pos - 1) + string.charAt(pos).toUpperCase() + string.substr(pos+1).toLowerCase()));
     
   },
