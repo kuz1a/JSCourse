@@ -85,9 +85,9 @@ const appData = {
   
     return numberRes
   },
-    isString : function (str, comma = false) {
-        const pattern = comma ? /^[, а-яА-ЯёЁa-zA-Z]+$/ : /^[ а-яА-ЯёЁa-zA-Z]+$/;
-        return pattern.test(str);
+    isString : function (str) {
+       let stringRes = isNaN(str);
+        return stringRes
     },
   start : function() {
     this.asking();
