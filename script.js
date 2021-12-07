@@ -7,15 +7,22 @@ let percentItems = document.getElementsByClassName("other-items percent");
 let numberItems = document.getElementsByClassName("other-items number");
 let range = document.querySelector(".rollback input");
 let rangeValue = document.querySelector('.rollback .range-value');
-let totalInput = document.getElementsByClassName("total-input");
+let totalInputs = document.getElementsByClassName("total-input");
+let totalInputTotal = document.getElementsByClassName("total-input")[0];
+let totalInputTotalCount = document.getElementsByClassName("total-input")[1];
+let totalInputFullCountOther = document.getElementsByClassName("total-input")[2];
+let totalInputFullCount = document.getElementsByClassName("total-input")[3];
+let totalInputCountRollback = document.getElementsByClassName("total-input")[4];
 let screen = document.querySelectorAll(".screen");
 
-for (let i = 0; i<totalInput.length; i++) {
-  console.log(totalInput[i]);
-}
+// console.log(totalInputTotal);
+// console.log(totalInputTotalCount);
+// console.log(totalInputFullCountOther);
+// console.log(totalInputFullCount);
+// console.log(totalInputCountRollback);
 
 console.log(rangeValue);
-console.log(range);пше
+console.log(range);
 console.log(numberItems);
 console.log(percentItems);
 console.log(addScreenBtn);
