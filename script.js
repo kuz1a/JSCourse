@@ -4,6 +4,7 @@ let square = document.querySelector("#square");
 let circleBtn = document.querySelector("#e_btn");
 let colorValue = '';
 let range = document.querySelector("#range");
+let rangeSpan = document.querySelector("#range-span");
 let circle = document.querySelector("#circle");
 
 input.addEventListener('input', function(){
@@ -18,6 +19,7 @@ setColorButton.addEventListener('click', function() {
 circleBtn.style.display = 'none';
 
 range.addEventListener('input', function(){
+    rangeSpan.textContent = `${range.value}%`;
     circle.style.width = `${range.value}%`;
     circle.style.height = `${range.value}%`;
     
