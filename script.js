@@ -36,7 +36,7 @@ const appData = {
     appData.addTitle()
 
     startBtn.addEventListener('click', appData.change)
-    buttonPlus.addEventListener('click', appData.changeBtnPlus);
+    buttonPlus.addEventListener('click', appData.changePlus);
     range.addEventListener('input', appData.getServicePercentPrices)
   },
   getServicePercentPrices: function() {
@@ -58,16 +58,28 @@ const appData = {
             twoArray.forEach(item => {
               if (item.value === '') {
                 appData.isError = true;
-            
+                  
               }
             })
             if (!appData.isError) {
               appData.start();
             }
-              
+                // if (item.value === '') {
+                //     buttonPlus.setAttribute('disabled', 'disable');
+                //     startBtn.setAttribute('disabled', 'disable');
+                //     buttonPlus.classList.add('disable');
+                //     startBtn.classList.add('disable');
+                //     console.log('asdasdas')
+                // }
+                // else {
+                //     buttonPlus.removeAttribute('disabled');
+                //     startBtn.removeAttribute('disabled');
+                //     buttonPlus.classList.remove('disable');
+                //     startBtn.classList.remove('disable');
+                // }
         })
   },
-  changeBtnPlus: function() {
+  changePlus: function() {
     let screens = document.querySelectorAll(".screen");
    
     screens.forEach(function(screen) {
@@ -78,15 +90,13 @@ const appData = {
         twoArray.forEach(item => {
           if (item.value === '') {
             appData.isError = true;
-        
+              
           }
         })
         if (!appData.isError) {
-          
           appData.addScreenBlock();
         }
-          
-    })
+      })
   },
   addScreenBlock: function() {
       const cloneScreen = screens[0].cloneNode(true);
