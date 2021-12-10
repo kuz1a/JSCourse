@@ -15,11 +15,7 @@ let totalInputFullCount = document.getElementsByClassName("total-input")[3];
 let totalInputCountRollback = document.getElementsByClassName("total-input")[4];
 let screen = document.querySelectorAll(".screen");
 
-// console.log(totalInputTotal);
-// console.log(totalInputTotalCount);
-// console.log(totalInputFullCountOther);
-// console.log(totalInputFullCount);
-// console.log(totalInputCountRollback);
+
 
 console.log(rangeValue);
 console.log(range);
@@ -135,5 +131,3 @@ const appData = {
 }
 
 // appData.start();
-
-
