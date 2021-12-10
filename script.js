@@ -92,7 +92,6 @@ const appData = {
   },
   addScreens: function() {
     let screens = document.querySelectorAll(".screen");
-   
         screens.forEach(function(screen, index) {
             
             const select = screen.querySelector('select');
@@ -133,6 +132,7 @@ const appData = {
   
   },
   addPrices : function() {
+    appData.screenPrice = 0;
     for (let screen of appData.screens) {
         appData.screenPrice += +screen.price;
     }
@@ -151,7 +151,9 @@ const appData = {
 
   },
   showResult: function() {
+    
     totalInputTotal.value = appData.screenPrice
+    console.log(totalInputTotal.value);
     totalInputFullCountOther.value = appData.servicePricesNumber + appData.servicePricesNumber
     totalInputFullCount.value = appData.fullPrice
     totalInputCountRollback.value = appData.rollback
