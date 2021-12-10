@@ -238,11 +238,11 @@ const appData = {
     screens[screens.length - 1].after(cloneScreen);
   },
   addScreens: function () {
-    appData.screens = [];
+    appData.screens = [];    
     let screens = document.querySelectorAll(".screen");
-
+    
     screens.forEach(function (screen, index) {
-      
+     
       const select = screen.querySelector("select");
       const input = screen.querySelector("input");
       appData.countScreens += +input.value;
@@ -309,7 +309,7 @@ const appData = {
   addPrices: function () {
     for (let screen of appData.screens) {
       appData.screenPrice += +screen.price;
-      console.log(+screen.price);
+  
     }
 
     for (let key in appData.servicesNumber) {
