@@ -35,8 +35,8 @@ const appData = {
     appData.change();
     appData.addTitle()
 
-    startBtn.addEventListener('click',appData.start)
-    buttonPlus.addEventListener('click', appData.addScreenBlock);
+    startBtn.addEventListener('click', appData.change)
+    buttonPlus.addEventListener('click', appData.changeBtnPlus);
     range.addEventListener('input', appData.getServicePercentPrices)
   },
   getServicePercentPrices: function() {
@@ -46,34 +46,47 @@ const appData = {
   addTitle: function() {
     document.title = title.textContent
   },
+  isError: false,
   change: function() {
-   
     let screens = document.querySelectorAll(".screen");
    
-        screens.forEach(function(screen, index) {
-            
+        screens.forEach(function(screen) {
             let select = screen.querySelectorAll('select');
             let input = screen.querySelectorAll('input');
+            appData.isError = false;
             const twoArray = [...select, ...input];
             twoArray.forEach(item => {
-                if (item.value === '') {
-                    buttonPlus.setAttribute('disabled', 'disable');
-                    startBtn.setAttribute('disabled', 'disable');
-                    buttonPlus.classList.add('disable');
-                    startBtn.classList.add('disable');
-                    console.log('asdasdas')
-                }
-                else {
-                    buttonPlus.removeAttribute('disabled');
-                    startBtn.removeAttribute('disabled');
-                    buttonPlus.classList.remove('disable');
-                    startBtn.classList.remove('disable');
-                }
-            }) 
+              if (item.value === '') {
+                appData.isError = true;
             
-    
-
+              }
+            })
+            if (!appData.isError) {
+              appData.start();
+            }
+              
         })
+  },
+  changeBtnPlus: function() {
+    let screens = document.querySelectorAll(".screen");
+   
+    screens.forEach(function(screen) {
+        let select = screen.querySelectorAll('select');
+        let input = screen.querySelectorAll('input');
+        appData.isError = false;
+        const twoArray = [...select, ...input];
+        twoArray.forEach(item => {
+          if (item.value === '') {
+            appData.isError = true;
+        
+          }
+        })
+        if (!appData.isError) {
+          
+          appData.addScreenBlock();
+        }
+          
+    })
   },
   addScreenBlock: function() {
       const cloneScreen = screens[0].cloneNode(true);
@@ -153,7 +166,7 @@ const appData = {
     
   },
   start : function() {
-
+  
     appData.addScreens();
     appData.addServices();
     appData.addPrices();
