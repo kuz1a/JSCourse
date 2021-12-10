@@ -34,7 +34,7 @@ const appData = {
   init: function() {
     appData.change();
     appData.addTitle()
-    appData.isError = false;
+    
     startBtn.addEventListener('click', appData.change)
     buttonPlus.addEventListener('click', appData.changePlus);
     range.addEventListener('input', appData.getServicePercentPrices)
@@ -64,19 +64,6 @@ const appData = {
             if (!appData.isError) {
               appData.start();
             }
-                // if (item.value === '') {
-                //     buttonPlus.setAttribute('disabled', 'disable');
-                //     startBtn.setAttribute('disabled', 'disable');
-                //     buttonPlus.classList.add('disable');
-                //     startBtn.classList.add('disable');
-                //     console.log('asdasdas')
-                // }
-                // else {
-                //     buttonPlus.removeAttribute('disabled');
-                //     startBtn.removeAttribute('disabled');
-                //     buttonPlus.classList.remove('disable');
-                //     startBtn.classList.remove('disable');
-                // }
         })
   },
   changePlus: function() {
