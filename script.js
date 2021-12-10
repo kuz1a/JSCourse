@@ -34,7 +34,7 @@ const appData = {
   init: function() {
     appData.change();
     appData.addTitle()
-
+    appData.isError = false;
     startBtn.addEventListener('click', appData.change)
     buttonPlus.addEventListener('click', appData.changePlus);
     range.addEventListener('input', appData.getServicePercentPrices)
@@ -88,6 +88,7 @@ const appData = {
         appData.isError = false;
         const twoArray = [...select, ...input];
         twoArray.forEach(item => {
+          console.log(item.value)
           if (item.value === '') {
             appData.isError = true;
               
