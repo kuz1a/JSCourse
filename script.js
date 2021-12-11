@@ -48,8 +48,7 @@ const appData = {
   },
   isError: false,
   change: function() {
-    let screens = document.querySelectorAll(".screen");
-   
+    // let screens = document.querySelectorAll(".screen");
         screens.forEach(function(screen) {
             let select = screen.querySelectorAll('select');
             let input = screen.querySelectorAll('input');
@@ -67,7 +66,7 @@ const appData = {
         })
   },
   changePlus: function() {
-    let screens = document.querySelectorAll(".screen");
+    // let screens = document.querySelectorAll(".screen");
    
     screens.forEach(function(screen) {
         let select = screen.querySelectorAll('select');
@@ -94,7 +93,8 @@ const appData = {
   },
   addScreens: function() {
     // appData.screens = []; 
-    let screens = document.querySelectorAll(".screen");
+    let screens = document.querySelectorAll(".main-controls__item.screen");
+    console.log(screens);
         screens.forEach(function(screen, index) {
             
             const select = screen.querySelector('select');
