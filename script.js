@@ -95,8 +95,8 @@ const appData = {
       }
      
      
-    console.log(screens);
-    appData.screens = []
+   
+      appData.screens = []
     totalInputTotal.value = appData.screenPrice = 0
     appData.servicePricesNumber = 0 ;
     appData.servicePricesNumber = 0
@@ -170,7 +170,7 @@ const appData = {
         const input =  item.querySelector('input[type=text]');
 
         if (check.checked) {
-            appData.servicesPercent[label.textContent] = +input.value;
+          this.servicesPercent[label.textContent] = +input.value;
         }
         
     })
@@ -181,44 +181,39 @@ const appData = {
         const input =  item.querySelector('input[type=text]');
 
         if (check.checked) {
-            appData.servicesNumber[label.textContent] = +input.value;
+          this.servicesNumber[label.textContent] = +input.value;
         }
         
     })
   
   },
   addPrices : function() {
-    appData.screenPrice = 0;
+    this.screenPrice = 0;
   
     for (let screen of appData.screens) {
-        appData.screenPrice += +screen.price;
+      this.screenPrice += +screen.price;
     }
 
     for (let key in appData.servicesNumber) {
-        appData.servicePricesNumber += appData.servicesNumber[key];
+      this.servicePricesNumber += this.servicesNumber[key];
     }
 
     for (let key in appData.servicesPercent) {
-        appData.servicePricesPercent += appData.screenPrice * (appData.servicesPercent[key] / 100);
+      this.servicePricesPercent += this.screenPrice * (this.servicesPercent[key] / 100);
     }
-    appData.fullPrice = appData.servicePricesNumber + appData.servicePricesPercent + +appData.screenPrice;
+    this.fullPrice = this.servicePricesNumber + this.servicePricesPercent + +this.screenPrice;
 
-    appData.rollback = appData.fullPrice - (appData.fullPrice * range.value/100)
+    this.rollback = this.fullPrice - (this.fullPrice * range.value/100)
 
 
   },
   showResult: function() {
     
-    totalInputTotal.value = appData.screenPrice
-    totalInputFullCountOther.value = appData.servicePricesNumber + appData.servicePricesNumber
-    totalInputFullCount.value = appData.fullPrice
-    totalInputCountRollback.value = appData.rollback
-    totalInputTotalCount.value = appData.countScreens 
-    
-  },
-  getTitle : function(string) {
-    let pos = string.indexOf(string.trim().charAt(0));
-    appData.title = string.substr(0, pos - 1) + string.charAt(pos).toUpperCase() + string.substr(pos+1).toLowerCase();
+    totalInputTotal.value = this.screenPrice
+    totalInputFullCountOther.value = this.servicePricesNumber + this.servicePricesNumber
+    totalInputFullCount.value = this.fullPrice
+    totalInputCountRollback.value = this.rollback
+    totalInputTotalCount.value = this.countScreens 
     
   },
   start : function() {
