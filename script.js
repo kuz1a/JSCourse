@@ -33,7 +33,7 @@ const appData = {
   countScreens: 0,
   
   init: function() {
-    this.change();
+    // this.change();
     this.addTitle()
     
     startBtn.addEventListener('click', this.change)
@@ -53,6 +53,8 @@ const appData = {
   isError: false,
   change: function() {
     const check = document.querySelectorAll('input[type=checkbox]');
+    range.disabled = false;
+    console.log(range);
     check.forEach((item) => {
       item.disabled = false;
     })
@@ -79,6 +81,7 @@ const appData = {
   },
   reset: function() {
       let screens = document.querySelectorAll(".screen")
+
       const check = document.querySelectorAll('input[type=checkbox]');
       screens.forEach((item) => {
         let select = item.querySelectorAll('select');
@@ -97,6 +100,7 @@ const appData = {
       for (let i = 1; i < screens.length; i++) {
         screens[i].remove();
       }
+      range.disabled = false
      
     this.screens = []
     this.screenPrice = 0
