@@ -90,7 +90,7 @@ const appData = {
           item.checked = false;
         }
       })
-      for (let i = 1; i <= screens.length; i++) {
+      for (let i = 1; i < screens.length; i++) {
         screens[i].remove();
       }
      
