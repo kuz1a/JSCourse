@@ -101,6 +101,8 @@ const appData = {
         screens[i].remove();
       }
       range.disabled = false
+      range.value = 0;
+      rangeValue.textContent = `0 %` 
      
     this.screens = []
     this.screenPrice = 0
