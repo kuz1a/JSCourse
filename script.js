@@ -90,11 +90,12 @@ const appData = {
           item.checked = false;
         }
       })
-      for (let i =1; i >= screens.length; i ++) {
-        delete screens[i]
+      for (let i = 1; i <= screens.length; i++) {
+        screens[i].remove();
       }
      
-      console.log(screens);
+     
+    console.log(screens);
     appData.screens = []
     totalInputTotal.value = appData.screenPrice = 0
     appData.servicePricesNumber = 0 ;
