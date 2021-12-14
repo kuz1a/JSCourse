@@ -103,16 +103,19 @@ const appData = {
     this.servicePricesNumber = 0 ;
     totalInputFullCountOther.value = "0"; 
     totalInputFullCount.value = 0;
+    totalInputTotal.value = 0
+    totalInputTotalCount.value = 0
     this.fullPrice = 0;
-    totalInputCountRollback.textContent = "0";
+    totalInputCountRollback.value = 0;
+    
     this.rollback = "0";
-    this.countScreens = 0
+    this.countScreens = 0;
     this.screenPrice = 0;
 
     resetBtn.style.display = 'none';
     startBtn.style.display = 'block';
     buttonPlus.style.display = 'block';
-    this.start();
+    // this.start();
   },
   blockButtons: function() {;
       let allInputs = document.querySelectorAll(".main-controls")
@@ -206,6 +209,7 @@ const appData = {
     for (let key in appData.servicesPercent) {
       this.servicePricesPercent += this.screenPrice * (this.servicesPercent[key] / 100);
     }
+
     this.fullPrice = this.servicePricesNumber + this.servicePricesPercent + +this.screenPrice;
 
     this.rollback = this.fullPrice - (this.fullPrice * range.value/100)
@@ -215,15 +219,14 @@ const appData = {
   showResult: function() {
     
     totalInputTotal.value = this.screenPrice
-    totalInputFullCountOther.value = this.servicePricesNumber + this.servicePricesNumber
+    totalInputFullCountOther.value = this.servicePricesNumber + this.servicePricesPercent
     totalInputFullCount.value = this.fullPrice
     totalInputCountRollback.value = this.rollback
     totalInputTotalCount.value = this.countScreens 
     
   },
   start : function() {
-    const inputsRight = document.querySelectorAll('.total-input')
-    console.log(inputsRight);
+  
     this.addScreens();
     this.addServices();
     this.addPrices();
