@@ -1,40 +1,96 @@
 'use strict';
 
-const DomElement = function(selector, height, width, bg, fontSize, text) {
-  this.selector = selector;
-  this.height = height
-  this.width = width
-  this.bg = bg 
-  this.fontSize = fontSize
-  this.text = text
-}
-DomElement.prototype.createElem = function() {
-  let elem  = document.createElement('div')
-  let firstLetter = this.selector[0]
-  if (firstLetter === '.') {
-    elem.className = this.selector.substring(1);
-
-  } else if(firstLetter === '#') {
-    elem.setAttribute('id', this.selector.substring(1));
-  
+class First {
+  constructor(){
+   
   }
-  elem.style.cssText = 'height:' + this.height + ';' +
-  'width:' + this.width + ';' +
-  'background:' + this.bg + ';' +
-  'font-size:' + this.fontSize + ';';
-
-  elem.textContent = this.text;
-  document.body.append(elem);
+  hello() {
+   console.log('Привет я метод родителя');
+ }
+}
+class Second extends First {
+  constructor(){
+    super()
+  }
+  hello() {
+    super.hello();
+    console.log('А я наследуемый метод');
+    //Метод Феймана
+    console.log('Научились делать человека который считает сумму за будующую выполненую работу');
+    console.log('научились заимстововать разные действия от одного человека к другому');
+    console.log('Создание копии другого человека ровно с тем с чем владеет первый человек');
+    console.log('научились называть человека и давать ему определенные действия');
+  }
 }
 
-const domElement = new DomElement('#elem', '100px', '37%', 'green', '25px', 'Элемент класса');
-console.log(domElement);
-domElement.createElem();
 
 
-domElement.selector = '.new-elem';
-domElement.height = '50px';
-domElement.width = '150px';
-domElement.bg = 'red';
+const first = new First();
+const second = new Second();
 
-domElement.createElem();
+first.hello();
+second.hello();
+
+
+
+// const second = new Second();
+
+// second.hello();
+
+
+// const Person1 = function(name, age) {
+//   this.name = name;
+//   this.age = age;
+
+// }
+// Person1.prototype.sayHello = function() {
+//   console.log(`Привет меня зовут ${this.name}`);
+// }
+
+// const person1 = new Person1('Vlad', 123) 
+// person1.sayHello();
+// console.log(person1);
+
+// class Person {
+//   constructor(name, age) {
+//     this.name = name;
+//   this.age = age
+//   Person.incrementCount()
+//   }
+
+//   static count = 0
+//   static getCount() {
+//     return Person.count
+//   }
+//   static incrementCount(){
+//     Person.count++
+//   }
+
+//   sayHello() {
+//     console.log(`привет меня зовут ${this.name}`);
+//   }
+  
+// }
+// class FrontEndDev extends Person {
+//   constructor(name, age, skills = []){
+//     super(name, age)
+//     this._skills = skills
+
+//   }
+//   test() {
+//     super.sayHello()
+//   } 
+//   get skills() {
+//     return this._skills
+//   }
+//   set skills(str){
+//     console.log(str);
+//     this.skills.push(str)
+//   }
+
+// }
+// const dev = new FrontEndDev('Vlad', '23')
+// console.log( dev);
+// dev.skills = 'Черт'
+// dev.sayHello();
+// dev.test();
